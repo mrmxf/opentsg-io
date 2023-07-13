@@ -1,0 +1,53 @@
+# This file is a template, and might need editing before it works on your project.
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Go.gitlab-ci.yml
+# CI_PIPELINE_SOURCE
+# How was the pipeline triggered
+# Can be push, web, schedule, api, external, chat, webide, merge_request_event, external_pull_request_event, parent_pipeline, trigger, or pipeline.
+
+
+image: golang:latest
+
+stages:
+  - test
+  - build
+  - deploy
+
+
+test:
+
+  stage: test
+  tags:
+    - linux
+  script:
+    - go env -w GOPRIVATE=gitlab.com/*,github.com/*
+    - go fmt $(go list ./... | grep -v /vendor/)
+    - go vet $(go list ./... | grep -v /vendor/)
+    - export LD_LIBRARY_PATH=$PWD/lib:$LD_LIBRARY_PATH
+    - go test ./... -v
+  only:
+    - main
+  #
+
+deploy:
+  stage: deploy 
+  tags:
+    - linux
+  script: # remove the runner file when deploying so its not passed along
+    - rm .gitlab-ci.yml
+    - chmod u+x ./clogrc/pullRequest.sh
+    - chmod u+x ./clogrc/goReplace.sh
+    - ./clogrc/goReplace.sh "$PWD" "gitlab.com/mmTristan/tpg-widgets" "github.com/mmTristan/tpg-widgets-private"
+    - ./clogrc/goReplace.sh "$PWD" "gitlab.com/mmTristan/tpg-core" "github.com/mmTristan/tpg-core-private"
+    - ./clogrc/goReplace.sh "$PWD" "gitlab.com/mmTristan/tpg-io" "github.com/mmTristan/tpg-io-private"
+    - ./clogrc/pullRequest.sh $GITHUB_PAT "$CI_COMMIT_MESSAGE" "tpg-io-private"
+    #"$CI_COMMIT_BRANCH"
+  only:
+    - main
+  #rules:
+  #  - if: $CI_PIPELINE_SOURCE == "push" && "$CI_COMMIT_BRANCH" =="main"

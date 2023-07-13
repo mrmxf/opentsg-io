@@ -1,0 +1,6 @@
+tasks:
+  - init: |
+      echo 'TODO: build project'
+      export LD_LIBRARY_PATH=/workspace/tpg-io/lib:$LD_LIBRARY_PATH
+    command: |
+      echo 'TODO: start app'
