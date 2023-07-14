@@ -8,7 +8,8 @@ import (
 	"image/color"
 	"os"
 	"testing"
-	"gitlab.com/mmTristan/tpg-core/aces"
+
+	"github.com/mrmxf/opentsg-core/aces"
 	. "github.com/smartystreets/goconvey/convey"
 )
 
