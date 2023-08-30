@@ -4,6 +4,8 @@ github.com/jtolds/gls v4.20.0+incompatible h1:xdiiI2gbIgH/gLH7ADydsJ1uDOEzR8yvV7
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
 github.com/mrmxf/opentsg-core v0.0.0-20230717102142-0cce3aeac96d h1:ceG81BM90Gnu5CGaVoj/cOnmubcZ/a/M22Ag5SPsuHM=
 github.com/mrmxf/opentsg-core v0.0.0-20230717102142-0cce3aeac96d/go.mod h1:cRn4fvwaqqy1F6/w5iMt2mE+fU1vJOozUEU+qUmz25Q=
+github.com/mrmxf/opentsg-core v0.0.0-20230830153622-6d3831e3c1ed h1:N+0FXV0ULEhMdNcLHo9813sielgix024NpQpNF2jYNA=
+github.com/mrmxf/opentsg-core v0.0.0-20230830153622-6d3831e3c1ed/go.mod h1:CG5ZMRC8WLHnChyXKRqHjNBvFzySB5WMiWoLsE/hdXg=
 github.com/smarty/assertions v1.15.0 h1:cR//PqUBUiQRakZWqBiFFQ9wb8emQGDb0HeGdqGByCY=
 github.com/smarty/assertions v1.15.0/go.mod h1:yABtdzeQs6l1brC900WlRNwj6ZR55d7B+E8C6HtKdec=
 github.com/smartystreets/goconvey v1.8.1 h1:qGjIddxOk4grTu9JPOU31tVfq3cNdBlNa5sSznIX1xY=

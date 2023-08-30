@@ -3,7 +3,7 @@ module github.com/mrmxf/opentsg-io
 go 1.20
 
 require (
-	github.com/mrmxf/opentsg-core v0.0.0-20230717102142-0cce3aeac96d
+	github.com/mrmxf/opentsg-core v0.0.0-20230830153622-6d3831e3c1ed
 	github.com/smartystreets/goconvey v1.8.1
 	github.com/x448/float16 v0.8.4
 	golang.org/x/image v0.9.0
