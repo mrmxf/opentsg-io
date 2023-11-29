@@ -1,2 +1,7 @@
-##Ignore all generated outputs
-**/*.mhl
+**/*.csv
+**/*.xml
+clogrc/core
+clogrc/tmp/*
+!clogrc/tmp/readme.md
+archive/
+.DS_Store
